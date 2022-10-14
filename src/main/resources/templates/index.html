@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+    <div class="container">
+        <br>
+        <div>
+            <a href="/save/1" class="btn btn-primary">Agregar </a>
+        </div>
+        <div th:switch="${list}">
+            <h2 th:if="${list.isEmpty()}">No hay usuarios</h2>
+            <div th:if="${!list.isEmpty()}">
+                <h2>Users</h2>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="user : ${list}">
+                        <td th:text="${user.id}"></td>
+                        <td th:text="${user.firstName}"></td>
+                        <td th:text="${user.lastName}"></td>
+                        <td th:text="${user.email}"></td>
+                        <td>
+                            <a th:href="@{/save/{id}(id=${user.id})}" class="btn btn-info">Edit</a>
+                            <a th:href="@{/delete/{id}(id=${user.id})}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    </tbody>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
