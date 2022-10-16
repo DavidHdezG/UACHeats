@@ -39,10 +39,7 @@ public class PedidoRestController {
             return new ResponseEntity<Pedido>(obj, HttpStatus.NOT_FOUND);
         }
     }
-    @GetMapping("/all/{id}")
-    public Pedido getOne(@PathVariable Long id){
-        return pedidoServiceAPI.getAll().get(Math.toIntExact(id));
-    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Pedido> delete(@PathVariable Long id){
         Pedido pedido = pedidoServiceAPI.get(id);

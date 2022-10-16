@@ -14,7 +14,7 @@ public class ProductoController {
     @Autowired
     private ProductoServiceAPI productoServiceAPI;
 
-    @RequestMapping("/")
+    @RequestMapping("/all")
     public String index(Model model){
         model.addAttribute("productos", productoServiceAPI.getAll());
         return "index";
