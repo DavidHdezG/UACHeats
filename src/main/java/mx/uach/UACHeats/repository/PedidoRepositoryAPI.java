@@ -1,13 +1,11 @@
 package mx.uach.UACHeats.repository;
 
-import mx.uach.UACHeats.model.User;
+import mx.uach.UACHeats.model.Pedido;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 @Service
-public interface UserRepositoryAPI extends CrudRepository<User, Long> {
-
+public interface PedidoRepositoryAPI extends CrudRepository<Pedido, Long> {
 
 }
 
