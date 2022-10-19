@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @RestController
 @RequestMapping("/pago")
 @CrossOrigin("*")
@@ -14,22 +15,22 @@ public class PagoRestController {
     private PagoServiceAPI pagoServiceAPI;
 
     @GetMapping("/all")
-    public List<Pago> getAll(){
+    public List<Pago> getAll() {
         return pagoServiceAPI.getAll();
     }
 
     @GetMapping("/{id}")
-    public Pago get(@PathVariable("id") Integer id){
+    public Pago get(@PathVariable("id") Integer id) {
         return pagoServiceAPI.get(id);
     }
 
     @PostMapping("/add")
-    public Pago add(@RequestBody Pago pago){
+    public Pago add(@RequestBody Pago pago) {
         return pagoServiceAPI.save(pago);
     }
 
     @PutMapping("/update")
-    public Pago update(@RequestBody Pago pago){
+    public Pago update(@RequestBody Pago pago) {
         return pagoServiceAPI.save(pago);
     }
 }

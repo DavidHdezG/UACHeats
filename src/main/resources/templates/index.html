@@ -24,10 +24,10 @@
                     </thead>
                     <tbody>
                     <tr th:each="producto : ${productos}">
-                        <td th:text="${producto.id_producto}"></td>
-                        <td th:text="${producto.nombre}"></td>
-                        <td th:text="${producto.descripcion}"></td>
-                        <td th:text="${producto.precio}"></td>
+                        <td th:text="${producto.getId()}"></td>
+                        <td th:text="${producto.getNombre()}"></td>
+                        <td th:text="${producto.getDescripcion()}"></td>
+                        <td th:text="${producto.getPrecio()}"></td>
                         <!--<td>
                             <a th:href="@{/save/{id}(id=${user.id})}" class="btn btn-info">Edit</a>
                             <a th:href="@{/delete/{id}(id=${user.id})}" class="btn btn-danger">Delete</a>
