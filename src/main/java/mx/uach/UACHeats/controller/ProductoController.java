@@ -32,7 +32,7 @@ public class ProductoController {
     }
     @GetMapping("/edit/{id}")
     public String edit(Producto producto, Model model) {
-        model.addAttribute("producto", productoServiceAPI.get((long) producto.getId()));
+        model.addAttribute("producto", productoServiceAPI.get((long) producto.getId_producto()));
         return "edit";
     }
 }

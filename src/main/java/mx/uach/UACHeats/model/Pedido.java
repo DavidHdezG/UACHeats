@@ -1,12 +1,20 @@
 package mx.uach.UACHeats.model;
 
+import lombok.*;
+import org.hibernate.Hibernate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Objects;
 
 @Entity
-@Table(name = "PEDIDOS")
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
+@Table(name = "pedidos")
 public class Pedido {
     @Id
     @Column(name = "id_pedido")
@@ -24,59 +32,16 @@ public class Pedido {
     @Column
     private float total;
 
-    public Integer getId() {
-        return id;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Pedido pedido = (Pedido) o;
+        return id != null && Objects.equals(id, pedido.id);
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(Integer idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public Integer getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(Integer idProducto) {
-        this.idProducto = idProducto;
-    }
-
-    public Integer getCantidadProducto() {
-        return cantidadProducto;
-    }
-
-    public void setCantidadProducto(Integer cantidadProducto) {
-        this.cantidadProducto = cantidadProducto;
-    }
-
-    public String getHoraEntrega() {
-        return horaEntrega;
-    }
-
-    public void setHoraEntrega(String horaEntrega) {
-        this.horaEntrega = horaEntrega;
-    }
-
-    public String getEstadoPedido() {
-        return estadoPedido;
-    }
-
-    public void setEstadoPedido(String estadoPedido) {
-        this.estadoPedido = estadoPedido;
-    }
-
-    public float getTotal() {
-        return total;
-    }
-
-    public void setTotal(float total) {
-        this.total = total;
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }
